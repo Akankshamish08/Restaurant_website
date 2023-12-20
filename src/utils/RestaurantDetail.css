@@ -1,0 +1,44 @@
+.Cart1{
+   display: flex;
+   margin-top: 30px;
+   text-align: center; 
+   margin: 100px ;
+}
+.foodName{
+    font-family: bold;
+    font-weight: 800;
+}
+.description{
+    text-wrap: wrap;
+    font-weight: 300;
+   
+    font-size: 16px;
+}
+
+.ids{
+    padding: 2px;
+    margin: 2px;
+    border:5px gray;
+    text-align: left;
+    display: flex;
+    gap: 20px;
+}
+.item{
+    width: 9/12;
+}
+.imagearea{
+    width:3/12;
+    padding: 4px;
+}
+.button{
+    position: absolute;
+}
+.btn-1{
+    padding: 2px;
+    
+}
+.foodimg{
+    width: 150px;
+   height: 150px;
+   margin: 10px;
+}
