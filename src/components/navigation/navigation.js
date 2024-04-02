@@ -36,23 +36,49 @@ const NavBar =() => {
     localStorage.removeItem("accessToken");
   };
     return (
+      <>
         <div className="navbar">
       <img className="logo" src="https://www.logolynx.com/images/logolynx/2f/2fe83a33c4d0888fbb9476d0deda5710.png" alt="logo"/>
      <ul>
        <li><NavLink  style={{textDecoration:'none'}} to ={"/"}>Home</NavLink></li>
        <li><NavLink  style={{textDecoration:'none'}} to ={"/about"}>About Us</NavLink></li>
-      <li><NavLink  style={{textDecoration:'none'}} to ={"/cart"} >Cart - {cart.length}items</NavLink></li>
-      <li>{isLoggedIn ? (<button onClick = {handleLogout}>Logout</button>
+      <li><NavLink  style={{textDecoration:'none'}} to ={"/cart"} >Cart - {cart.length} items</NavLink></li>
+      {/* <li>{isLoggedIn ? (<button onClick = {handleLogout}>Logout</button>
       ):(
-        <button type="button" onClick={openModal}>Login</button>)}</li>
+        <button type="button" onClick={openModal}>Login</button>)}</li></ul>
         <LogIn isVisible = {visible}
         onClose = {closeModal} 
-        setIsLoggedIn={setIsLoggedIn}/>
+        setIsLoggedIn={setIsLoggedIn}/> */}
       {/* <li><NavLink  style={{textDecoration:'none'}} to ={"/signup"} > SignUp</NavLink></li> */}
-      <li> {onlineStatus ? "🟢" : "🔴"}</li>
-     </ul>
-     
-     </div>
-    );
- };
+      {/* <li> {onlineStatus ? "🟢" : "🔴"}</li> */}
+      <li>
+            {isLoggedIn ? (
+              <button className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              type="button"
+               onClick={handleLogout}>Logout</button>
+            ) : (
+              <button
+                className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button"
+                onClick={openModal}
+              >
+                Login
+              </button>
+            )}
+          </li>
+          {/* <li className="px-4">{loggedInUser}</li> */}
+        </ul>
+      </div>
+      <LogIn
+        isVisible={visible}
+        onClose={closeModal}
+        setLoggedIn={setLoggedIn} 
+        />
+        </>
+     );
+     };
+   
+
+    
+
  export default NavBar;

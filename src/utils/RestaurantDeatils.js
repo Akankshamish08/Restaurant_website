@@ -10,6 +10,7 @@ import { CartContext } from "./cardContext";
 const RestaurantDetails =()=>{
     const {id} = useParams();
     const { addToCart} = useContext(CartContext);
+    const { removeFromCart} = useContext(CartContext);
     const  menu_data= useRestaurantMenu(id);
     const dispatch = useDispatch();
    
@@ -22,18 +23,33 @@ const RestaurantDetails =()=>{
         
      function handleAddItem(item){
         addToCart(item);
-     }    
+     };
+     function handleRemoveItem(itemToRemove){
+        removeFromCart(itemToRemove);
+     }  
+
      return (
+        
         <div className= "Cart1">
             <div className="menuList">
                 {itemsCards.map((item) =>(
                     <div data_testid = "foodItems" 
                     key = {item._id} className="ids">
                          <div className="imagearea">
-                            <div className="button">
-                               <button className="btn-1" onClick = {()=>handleAddItem(item)}>Add +</button> 
-                            </div>
+                         {/* <div className="button">
+                               <button className="btn-1" onClick = {()=>handleAddItem(item)}> + </button>
+                                <span className="text-white m-5">Add</span>
+                               <button className="btn-1" onClick = {()=>handleRemoveItem(item)}>-</button> 
+                              
+                            </div> */}
                             <img src={item.image} className="foodimg"/>
+                            <div className="button">
+                               <button className="btn-1" onClick = {()=>handleAddItem(item)}> + </button>
+                                <span className="text-white m-5">Add</span>
+                               <button className="btn-1" onClick = {()=>handleRemoveItem(item)}>-</button> 
+                              
+                            </div>
+                            
                         </div>
                         <div className="item">
                             <div className="pricing">

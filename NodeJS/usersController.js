@@ -1,20 +1,20 @@
-const userModel= require("./userModel");
+const usersModel= require("./userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 exports.register = (req,res)=>{
     const{FullName,Email, Password}= req.body;
 
-    const newUser = new userModel ({
+    const newUser = new usersModel ({
         FullName , Email , 
-        Password:bcrypt.hashSync(Password,10),
+        Password: bcrypt.hashSync(Password,10),
     });
-  userModel.findOne({Email}).then(data=>{
+  usersModel.findOne({Email}).then(data=>{
     if(data){
-        res.status(400).json({message:"User Already Registered"})
+       return res.status(400).json({message:"User Already Registered"});
 
     }else {
-        newUser.save().then(data =>{
-            return res.status(200).json({message:"User Registered Successfully"})
+        newUser.save().then((data) =>{
+            return res.status(200).json({message:"User Registered Successfully"});
         });
     }
   }).catch(err=>{
@@ -24,7 +24,7 @@ exports.register = (req,res)=>{
 };
 exports.login=(req,res)=>{
     const {Email,Password}=req.body;
-    userModel.findOne({Email}).then(data =>{
+    usersModel.findOne({Email}).then(data =>{
         if(!data){
         return res.status(404).json({message:"user is not register"});
     }
@@ -34,7 +34,7 @@ exports.login=(req,res)=>{
         return res.status(401).send("Invaild Password.Please Enter Correct Password")
        }
 
-       let accessToken = jwt.sign({id: data._id},"SecretKey", {expiresIn: "1h",});
+       let accessToken = jwt.sign({id: data._id},"secretkey", {expiresIn: "1h",});
         
        res.send({
         user: {

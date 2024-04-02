@@ -2,7 +2,8 @@ import "./About.css";
 const About = () =>{
     return (
         <>
-    <h1>About Us</h1>
+        <center><h1>About Us</h1></center>
+    
    <h2> Welcome to Food Circles</h2>
    <div className="para1">
 <p>At <span>Food Circles </span>  , we believe in the power of good food to bring people together.
@@ -14,7 +15,7 @@ const About = () =>{
 </div>
  <h2>Our Story</h2>
  <div className="para2">
-    <img src="https://th.bing.com/th/id/OIP.YbfQVWBj8dlidSxbTmuK-wAAAA?w=282&h=282&rs=1&pid=ImgDetMain"/> 
+    <img src="https://th.bing.com/th/id/OIP.G70Si20sbbUeoJKmmR-VcAHaFL?rs=1&pid=ImgDetMain"/> 
 <p>   Established in [2018], <span>Food Circles</span> has been a proud member of the Gorakhpur dining scene. From our humble beginnings, we have grown into a beloved culinary destination. Our journey has been fueled by a simple yet powerful philosophy: to serve delicious, high-quality food in a warm and welcoming atmosphere.</p>
 </div>
 <h2>Our Team</h2>
